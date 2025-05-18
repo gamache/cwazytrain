@@ -98,7 +98,7 @@ export class CWazy {
             ...elementIds
         };
 
-        const updateDisplays = function (document, ids) {
+        const updateDisplays = function () {
             const fields = self.fields();
             for (const key in fields) {
                 const value = fields[key];
@@ -107,18 +107,38 @@ export class CWazy {
                 const display = document.getElementById(ids[`${key}-display`]);
                 if (display) { display.innerHTML = value; }
             }
+
+            if (self._audioContext) {
+                const startButton = document.getElementById(ids["start-button"]);
+                if (startButton) startButton.disabled = true;
+                const stopButton = document.getElementById(ids["stop-button"]);
+                if (stopButton) stopButton.disabled = false;
+                const sendButton = document.getElementById(ids["send-button"]);
+                if (sendButton) sendButton.disabled = false;
+            } else {
+                const startButton = document.getElementById(ids["start-button"]);
+                if (startButton) startButton.disabled = false;
+                const stopButton = document.getElementById(ids["stop-button"]);
+                if (stopButton) stopButton.disabled = true;
+                const sendButton = document.getElementById(ids["send-button"]);
+                if (sendButton) sendButton.disabled = true;
+            }
         }
 
         let elt;
 
         elt = document.getElementById(ids["start-button"]);
         if (elt) {
-            elt.addEventListener("click", () => self.start());
+            elt.addEventListener("click", () => {
+                self.start().then(updateDisplays);
+            });
         }
 
         elt = document.getElementById(ids["stop-button"]);
         if (elt) {
-            elt.addEventListener("click", () => self.stop());
+            elt.addEventListener("click", () => {
+                self.stop().then(updateDisplays);
+            });
         }
 
         elt = document.getElementById(ids["send-button"]);
@@ -134,7 +154,7 @@ export class CWazy {
             elt.addEventListener("input", (e) => {
                 const value = e.target.value;
                 self.wpm = parseInt(value, 10);
-                updateDisplays(document, ids);
+                updateDisplays();
             });
         }
        
@@ -143,7 +163,7 @@ export class CWazy {
             elt.addEventListener("input", (e) => {
                 const value = e.target.value;
                 self.toneFreq = parseInt(value, 10);
-                updateDisplays(document, ids);
+                updateDisplays();
             });
         }
         
@@ -152,7 +172,7 @@ export class CWazy {
             elt.addEventListener("input", (e) => {
                 const value = e.target.value;
                 self.toneVolume = parseFloat(value, 10);
-                updateDisplays(document, ids);
+                updateDisplays();
             });
         }
 
@@ -161,7 +181,7 @@ export class CWazy {
             elt.addEventListener("input", (e) => {
                 const value = e.target.value;
                 self.noiseVolume = parseFloat(value, 10);
-                updateDisplays(document, ids);
+                updateDisplays();
             });
         }
  
@@ -170,7 +190,7 @@ export class CWazy {
             elt.addEventListener("input", (e) => {
                 const value = e.target.value;
                 self.bandpassLowFreq = parseInt(value, 10);
-                updateDisplays(document, ids);
+                updateDisplays();
             });
         }
  
@@ -179,7 +199,7 @@ export class CWazy {
             elt.addEventListener("input", (e) => {
                 const value = e.target.value;
                 self.bandpassHighFreq = parseInt(value, 10);
-                updateDisplays(document, ids);
+                updateDisplays();
             });
         }
  
@@ -188,11 +208,11 @@ export class CWazy {
             elt.addEventListener("input", (e) => {
                 const value = e.target.value;
                 self.jitter = parseFloat(value, 10);
-                updateDisplays(document, ids);
+                updateDisplays();
             });
         }
 
-        updateDisplays(document, ids);
+        updateDisplays();
     }
 
     #updateDisplays(document, ids) {
