@@ -215,17 +215,6 @@ export class CWazy {
         updateDisplays();
     }
 
-    #updateDisplays(document, ids) {
-        const fields = this.fields();
-        for (const key in fields) {
-            const value = fields[key];
-            const input = document.getElementById(ids[`${key}-input`]);
-            if (input) { input.value = value; }
-            const display = document.getElementById(ids[`${key}-display`]);
-            if (display) { display.innerHTML = value; }
-        }
-    }
-
     wpm;
     jitter;
 
@@ -390,7 +379,7 @@ export class CWazy {
         if (char === " ") {
             t += this.#betweenWords();
         } else {
-            const morse = MORSE_CODE[char.toUpperCase()] || "........:";
+            const morse = MORSE_CODE[char.toUpperCase()] || "........";
 
             let betweenSymbols;
             for (const sym of morse.split("")) {
@@ -441,5 +430,4 @@ export class CWazy {
         const unit = this.#unit();
         return this.#addJitter(7 * unit);
     }
-
 }
