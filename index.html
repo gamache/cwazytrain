@@ -1,4 +1,5 @@
-<title>Audio Test</title>
+<!DOCTYPE html>
+<title>CWazy Train</title>
 
 Hi
 
@@ -7,32 +8,36 @@ Hi
 <button id="stop-button">Stop</button>
 
 <br>
-<input id="transmit-text">
-<button id="transmit-button">Transmit</button>
+<input id="send-input">
+<button id="send-button">Send</button>
 
 <br>
 <input id="wpm-input" class="input-knob" type="range" step="1" min="5" max="60" value="20">
 WPM: <span id="wpm-display"></span>
 
 <br>
-<input id="noise-input" class="input-knob" type="range" step="0.05" min="0" max="1" value="0.5">
-Noise level: <span id="noise-display"></span>
+<input id="toneVolume-input" class="input-knob" type="range" step="0.01" min="0" max="1" value="0.5">
+Tone volume: <span id="toneVolume-display"></span>
 
 <br>
-<input id="osc-input" class="input-knob" type="range" step="0.05" min="0" max="1" value="0.5">
-Oscillator level: <span id="osc-display"></span>
+<input id="toneFreq-input" class="input-knob" type="range" step="10" min="350" max="900" value="600">
+Tone frequency: <span id="toneFreq-display"></span>
 
 <br>
-<input id="freq-input" class="input-knob" type="range" step="10" min="350" max="900" value="600">
-Tone frequency: <span id="freq-display"></span>
+<input id="noiseVolume-input" class="input-knob" type="range" step="0.01" min="0" max="1" value="0.5">
+Noise volume: <span id="noiseVolume-display"></span>
 
 <br>
-<input id="lowfreq-input" class="input-knob" type="range" step="10" min="0" max="2400" value="300">
-Bandpass low frequency: <span id="lowfreq-display"></span>
+<input id="bandpassLowFreq-input" class="input-knob" type="range" step="10" min="0" max="2400" value="300">
+Bandpass low frequency: <span id="bandpassLowFreq-display"></span>
 
 <br>
-<input id="highfreq-input" class="input-knob" type="range" step="10" min="0" max="2400" value="900">
-Bandpass high frequency: <span id="highfreq-display"></span>
+<input id="bandpassHighFreq-input" class="input-knob" type="range" step="10" min="0" max="2400" value="900">
+Bandpass high frequency: <span id="bandpassHighFreq-display"></span>
+
+<br>
+<input id="jitter-input" class="input-knob" type="range" step="0.01" min="0" max="0.5" value="0">
+Jitter: <span id="jitter-display"></span>
 
 <!-- script src="input-knobs.js"></script -->
 <script src="main.js" type="module"></script>
