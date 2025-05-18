@@ -2,10 +2,37 @@
 
 Hi
 
+<br>
 <button id="start-button">Start</button>
 <button id="stop-button">Stop</button>
+
 <br>
 <input id="transmit-text">
 <button id="transmit-button">Transmit</button>
 
+<br>
+<input id="wpm-input" class="input-knob" type="range" step="1" min="5" max="60" value="20">
+WPM: <span id="wpm-display"></span>
+
+<br>
+<input id="noise-input" class="input-knob" type="range" step="0.05" min="0" max="1" value="0.5">
+Noise level: <span id="noise-display"></span>
+
+<br>
+<input id="osc-input" class="input-knob" type="range" step="0.05" min="0" max="1" value="0.5">
+Oscillator level: <span id="osc-display"></span>
+
+<br>
+<input id="freq-input" class="input-knob" type="range" step="10" min="350" max="900" value="600">
+Tone frequency: <span id="freq-display"></span>
+
+<br>
+<input id="lowfreq-input" class="input-knob" type="range" step="10" min="0" max="2400" value="300">
+Bandpass low frequency: <span id="lowfreq-display"></span>
+
+<br>
+<input id="highfreq-input" class="input-knob" type="range" step="10" min="0" max="2400" value="900">
+Bandpass high frequency: <span id="highfreq-display"></span>
+
+<!-- script src="input-knobs.js"></script -->
 <script src="main.js" type="module"></script>
