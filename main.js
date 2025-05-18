@@ -1,4 +1,4 @@
-import { CWazy } from "./cwazy.mjs";
+import { CWazy } from "./cwazy.js";
 
 const cwazy = new CWazy();
 cwazy.attachHandlers(document);
