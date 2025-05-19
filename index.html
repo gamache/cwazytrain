@@ -1,41 +1,45 @@
 <!DOCTYPE html>
-<title>CWazy Train</title>
+<title>CWazy demo</title>
+<style>
+  html { max-width: 40em; margin: 2em auto; }
+  p { margin: 1em 0; }
+</style>
 
-Hi
+CWazy demo
 
-<br>
+<p>
 <button id="start-button">Start</button>
 <button id="stop-button">Stop</button>
 
-<br>
-<input id="send-input">
+<p>
+<input id="send-input" value="cq cq cq de k1qg k1qg k1qg k">
 <button id="send-button">Send</button>
 
-<br>
+<p>
 <input id="wpm-input" class="input-knob" type="range" step="1" min="5" max="60" value="20">
 WPM: <span id="wpm-display"></span>
 
-<br>
+<p>
 <input id="toneVolume-input" class="input-knob" type="range" step="0.01" min="0" max="1" value="0.5">
 Tone volume: <span id="toneVolume-display"></span>
 
-<br>
+<p>
 <input id="toneFreq-input" class="input-knob" type="range" step="10" min="350" max="900" value="600">
 Tone frequency: <span id="toneFreq-display"></span>
 
-<br>
+<p>
 <input id="noiseVolume-input" class="input-knob" type="range" step="0.01" min="0" max="1" value="0.5">
 Noise volume: <span id="noiseVolume-display"></span>
 
-<br>
+<p>
 <input id="bandpassLowFreq-input" class="input-knob" type="range" step="10" min="0" max="2400" value="300">
 Bandpass low frequency: <span id="bandpassLowFreq-display"></span>
 
-<br>
+<p>
 <input id="bandpassHighFreq-input" class="input-knob" type="range" step="10" min="0" max="2400" value="900">
 Bandpass high frequency: <span id="bandpassHighFreq-display"></span>
 
-<br>
+<p>
 <input id="jitter-input" class="input-knob" type="range" step="0.01" min="0" max="0.5" value="0">
 Jitter: <span id="jitter-display"></span>
 
