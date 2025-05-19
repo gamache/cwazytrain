@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<title>CWazy demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  html { background-color: #eee; font-family: sans-serif; }
+  body { background-color: #fff; padding: 1.4em; border-radius: 1em; max-width: fit-content; margin: 2em auto; }
+  p { margin: 1em 0; }
+</style>
+
+CWazy - Morse code (CW) simulator demo
+
+<p>
+<button id="start-button">Start</button>
+<button id="stop-button">Stop</button>
+
+<p>
+<textarea id="send-input" rows="2" cols="40">CQ CQ CQ DE K1QG K1QG K1QG K</textarea>
+<button id="send-button">Send</button>
+
+<p>
+<input id="wpm-input" type="range" step="1" min="5" max="60" value="20">
+WPM: <span id="wpm-display"></span>
+
+<p>
+<input id="toneVolume-input" type="range" step="0.01" min="0" max="1" value="0.5">
+Tone volume: <span id="toneVolume-display"></span>
+
+<p>
+<input id="toneFreq-input" type="range" step="10" min="350" max="900" value="600">
+Tone frequency: <span id="toneFreq-display"></span>
+
+<p>
+<input id="noiseVolume-input" type="range" step="0.01" min="0" max="1" value="0.5">
+Noise volume: <span id="noiseVolume-display"></span>
+
+<p>
+<input id="bandpassLowFreq-input" type="range" step="10" min="0" max="2400" value="300">
+Bandpass low frequency: <span id="bandpassLowFreq-display"></span>
+
+<p>
+<input id="bandpassHighFreq-input" type="range" step="10" min="0" max="2400" value="900">
+Bandpass high frequency: <span id="bandpassHighFreq-display"></span>
+
+<p>
+<input id="jitter-input" type="range" step="0.01" min="0" max="0.5" value="0">
+Jitter: <span id="jitter-display"></span>
+
+<script type="module">
+  import { CWazy } from "./cwazy.js";
+  const cwazy = new CWazy();
+  cwazy.attachHandlers(document);
+</script>
+

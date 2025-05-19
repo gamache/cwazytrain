@@ -404,7 +404,7 @@ export class CWazy {
     }
 
     #addJitter(t) {
-        const rand = Math.random(2) - 1;
+        const rand = 2 * Math.random() - 1;
         return t * (1 + this.jitter * rand);
     }
     #unit() {
